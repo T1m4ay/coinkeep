@@ -82,6 +82,7 @@ function App() {
         title: "Clothing",
         maxSum: 70000,
         totalSum: 45000,
+        icon: icod,
       },
       {
         id: 3,

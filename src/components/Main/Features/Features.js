@@ -16,7 +16,7 @@ function Features({
         {income.map((income) => (
           <div className={fm.incomeItem}>
             <div>{income.title}</div>
-            <img src={build} />
+            <i class="bi bi-0-square-fill"></i>
             <div>{income.sum}</div>
           </div>
         ))}
