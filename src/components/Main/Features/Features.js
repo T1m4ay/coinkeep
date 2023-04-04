@@ -16,13 +16,20 @@ function Features({
         {income.map((income) => (
           <div className={fm.incomeItem}>
             <div>{income.title}</div>
-            <i class="bi bi-0-square-fill"></i>
-            <div>{income.sum}</div>
+            <div className={fm.icons} style={{ backgroundColor: income.color }}>
+              <img src={income.icon} className={fm.iconStyle} />
+            </div>
+            <div style={{ color: income.color }}>{income.sum}</div>
           </div>
         ))}
         <div className={fm.incomeItem}>
           <div>ADD</div>
-          <img src={build} />
+          <div
+            className={fm.icons}
+            style={{ backgroundColor: "rgb(0, 190, 238)", color: "white" }}
+          >
+            <img src={storage.iconsForIncome[3]} className={fm.iconStyle} />
+          </div>
           <div>&nbsp;</div>
         </div>
       </div>
@@ -30,13 +37,23 @@ function Features({
         {accounts.map((accounts) => (
           <div className={fm.incomeItem}>
             <div>{accounts.title}</div>
-            <img src={build} />
-            <div>{accounts.sum}</div>
+            <div
+              className={fm.icons}
+              style={{ backgroundColor: accounts.color }}
+            >
+              <img src={accounts.icon} className={fm.iconStyle} />
+            </div>
+            <div style={{ color: accounts.color }}>{accounts.sum}</div>
           </div>
         ))}
         <div className={fm.incomeItem}>
           <div>ADD</div>
-          <img src={build} />
+          <div
+            className={fm.icons}
+            style={{ backgroundColor: "rgb(255, 205, 0)", color: "white" }}
+          >
+            <img src={storage.iconsForIncome[3]} className={fm.iconStyle} />
+          </div>
           <div>&nbsp;</div>
         </div>
       </div>
@@ -44,8 +61,10 @@ function Features({
         {expenses.map((expenses) => (
           <div className={fm.incomeItem}>
             <div>{expenses.title}</div>
-            <img src={build} />
-            <div>{expenses.totalSum}</div>
+            <div className={fm.icons} style={{ background: expenses.fill }}>
+              <img src={expenses.icon} className={fm.iconStyle} />
+            </div>
+            <div style={{ color: expenses.color }}>{expenses.totalSum}</div>
             <div>{expenses.maxSum}</div>
           </div>
         ))}
