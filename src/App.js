@@ -61,26 +61,54 @@ function App() {
       {
         id: 1,
         title: "Kaspi",
-        sum: 25000,
+        sum: 15000,
+        finishSum: 25000,
         icon: storage.iconsForAccount[1],
         color: "rgb(255, 205, 0)",
+        fill: "linear-gradient(to top, rgb(255, 205, 0) 100%, transparent 0%)",
       },
       {
         id: 2,
         title: "Halyk",
-        sum: 100000,
+        sum: 80000,
+        finishSum: 100000,
         icon: storage.iconsForAccount[3],
         color: "rgb(255, 205, 0)",
+        fill: "linear-gradient(to top, rgb(255, 205, 0) 100%, transparent 0%)",
       },
       {
         id: 3,
         title: "Cash",
-        sum: 180000,
+        sum: 0,
+        finishSum: 180000,
         icon: storage.iconsForAccount[2],
         color: "rgb(255, 205, 0)",
+        fill: "linear-gradient(to top, rgb(255, 205, 0) 100%, transparent 0%)",
       },
     ]
   );
+
+  accounts.map((accounts) => {
+    if (
+      accounts.sum == accounts.finishSum ||
+      accounts.maxSum > accounts.totalSum
+    ) {
+      accounts.color = "green";
+      accounts.fill =
+        "linear-gradient(to top, " +
+        accounts.color +
+        " " +
+        Math.round((accounts.totalSum / accounts.maxSum) * 100) +
+        "%, rgb(194, 198, 202) " +
+        Math.round((accounts.totalSum / accounts.maxSum) * 100) +
+        "%)";
+      console.log(accounts.fill);
+    } else {
+      accounts.color = "red";
+      accounts.fill = "linear-gradient(to top, red 100%, transparent 0%";
+      console.log(accounts.fill);
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem("accounts", JSON.stringify(accounts));
