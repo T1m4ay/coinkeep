@@ -91,23 +91,24 @@ function App() {
   accounts.map((accounts) => {
     if (
       accounts.sum == accounts.finishSum ||
-      accounts.maxSum > accounts.totalSum
+      accounts.sum < accounts.finishSum
     ) {
-      accounts.color = "green";
+      accounts.color = "rgb(255, 205, 0)";
       accounts.fill =
         "linear-gradient(to top, " +
         accounts.color +
         " " +
-        Math.round((accounts.totalSum / accounts.maxSum) * 100) +
-        "%, rgb(194, 198, 202) " +
-        Math.round((accounts.totalSum / accounts.maxSum) * 100) +
+        Math.round((accounts.sum / accounts.finishSum) * 100) +
+        "%, red " +
+        Math.round((accounts.sum / accounts.finishSum) * 100) +
         "%)";
       console.log(accounts.fill);
-    } else {
-      accounts.color = "red";
-      accounts.fill = "linear-gradient(to top, red 100%, transparent 0%";
-      console.log(accounts.fill);
     }
+    //   else {
+    //   accounts.color = "red";
+    //   accounts.fill = "linear-gradient(to top, red 100%, transparent 0%";
+    //   console.log(accounts.fill);
+    // }
   });
 
   useEffect(() => {
